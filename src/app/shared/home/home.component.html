@@ -1,0 +1,65 @@
+
+<mat-sidenav-container>
+
+  <!--Sidenav content-->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div>
+        <ul class="navigation-items">
+          <li>
+            <a routerLink="/dashboard" class="logo">
+              <span><img /></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <a routerLink="/dashboard" class="project-title">
+          Safe Market
+        </a>
+      </div>
+      <div>
+        <ul class="navigation-items">
+          <li>
+            <a>
+              <span class="label mx-2 pt-2"></span>
+              <span></span>
+            </a>
+          </li>
+          <li>
+            <a (click)="logout()" href="#">
+              <span class="label logout">logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <main>
+      <div class="container-fluid">
+        <!--<p-menubar [model]="items"></p-menubar>-->
+        <router-outlet></router-outlet>
+      </div>
+
+        <app-rating></app-rating>
+    </main>
+    <div class="footer" >
+      <a routerLink="/dashboard" class="footer-info">
+        <span>
+          <img  class="logo-footer"/>
+        </span>
+        <span class="pt-1">
+          <!-- xyz -->
+          <p class="c_right"></p>
+        </span>
+      </a>
+      <div class="footer-copyright">
+        <div> <a src="#"></a></div>
+        <div>All rights reserved</div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet name="print"></router-outlet>
+
+

@@ -1,0 +1,826 @@
+@font-face {
+  font-family: 'Hacen Tunisia';
+  src:  url('fonts/Hacen_Tunisia.ttf') format('truetype');
+  //  url('fonts/Hacen Tunisia-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Hacen TunisiaBold';
+  // src:  url('fonts/Hacen Tunisia-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Simplified Arabic';
+  src: url('fonts/SimplifiedArabicBold.ttf') format('truetype');
+}
+/***********************************************************************/
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config(
+        $font-family: var(--font-family-HacenTunisia),
+        $headline:      mat-typography-level(1.35rem, 32px, 400),
+        $title:         mat-typography-level(1rem, 32px, 500),
+        $body-2:        mat-typography-level(1rem, 24px, 500),
+        $body-1:        mat-typography-level(1rem, 20px, 400),
+        $caption:       mat-typography-level(1rem, 20px, 400),
+        $button:        mat-typography-level(1.2rem, 14px, 500),
+        $input:         mat-typography-level(1.1rem, 1.125, 400)
+);
+//$dark-primary-text:#707070;
+$mat-tooltip-font-size:0.9rem;
+@include mat-core($custom-typography);
+@import "theme_colors";
+
+
+$my-app-primary: mat-palette($mat-blue-reg);
+$my-app-accent: mat-palette($mat-cyan-reg);
+$my-app-warn: mat-palette($mat-orange-reg,500, 100, 700);
+$mat-light-theme-foreground: (
+        base:              mat-color($my-app-primary,500),
+        icon:              mat-color($my-app-primary,500),
+        icons:             mat-color($my-app-primary,500),
+        text:              mat-color($my-app-primary,500),
+        slider-min:        mat-color($my-app-primary,500),
+        slider-off:        mat-color($my-app-primary,500),
+        slider-off-active: mat-color($my-app-primary,500),
+);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent,$my-app-warn);
+@include angular-material-theme($my-app-theme);
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "overridingTheme";
+/* import only the necessary Bootstrap files */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+/* -------begin customization-------- */
+/* change the primary theme color to red */
+$theme-colors: (
+        "primary": #038dde ,
+        "success":#009253,
+        "info" : #70c5d2,
+        "secondary":#e76f23,
+        "danger" : #e76f23,
+        "warning" : #f8bd01);
+
+$font-family-base:"Hacen Tunisia";
+$headings-font-family:"Hacen Tunisia";
+$font-size-base:0.9rem;
+$font-weight-base :0.8rem;
+
+$h1-font-size:1.35rem;
+$paragraph-margin-bottom :0.3rem;
+$label-margin-bottom :0.4rem;
+
+
+$btn-font-size:1.2rem;
+$btn-line-height:initial;
+$form-group-margin-bottom:0.2rem;
+$link-hover-decoration:none;
+$link-hover-color: mat-color(map-get($my-app-theme, warn), 500);
+
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger{
+  font-size: 0.7rem;
+}
+
+/* -------end customization-------- */
+/* finally, import Bootstrap to set the changes! */
+
+@import "~bootstrap/scss/bootstrap";
+/**********************************************/
+@import "mixin/inputMixin";
+@include horizontal-formGroup;
+@include border-radius-mat-form-field(0.2rem);
+/**********************************************/
+
+:root{
+  --font-family-HacenTunisia:'Hacen Tunisia';
+  --blue:#038dde;
+  --cyan:#b8def5;
+  --yellow:#f8bd01;
+  --green:#009253;
+  --gray:#DEDEDE;
+  --gray-light:#f1f1f1;
+  --gray-lighter:#fafafa;
+  --gray-dark:#707070;
+  --danger:#e76f23;
+
+  --primary: var(--blue);
+  --accent: var(--cyan);
+  --default:var(--gray);
+
+  --animate-duration: 3s;
+  --animate-delay: 3s;
+}
+
+/**********************************************/
+html,body{
+  height: 100%;
+}
+
+a:not([href]),a:not([href]):hover{
+  color:$light-primary-text;
+}
+
+.btn-warning:hover {
+  color: $light-primary-text;
+}
+a:not([href]),a:not([href]):hover{
+  color:$light-primary-text;
+}
+main {
+  background-color: #fff;
+  .container-fluid {
+    height: calc(100vh - 149px);
+    padding: 0!important;
+    .row-main{
+      margin: 0 !important;
+      height: 100%;
+
+      > .side-menu {
+        padding: 0 !important;
+        margin-top: 1.5%;
+        background-color: #fff;
+        border-top-left-radius: 1rem;
+        -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1), 0px 4px 5px 0px #d6d7d8, 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1), 0px 4px 5px 0px #d6d7d8, 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1), 0px 4px 5px 0px #d6d7d8, 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+      }
+
+      > .main-container {
+        padding: 1rem !important;
+        margin: 1.5% auto 0;
+        height: calc(92% - 3rem);
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 1rem;
+        background-color: #fff;
+        -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1), 0px 4px 5px 0px #d6d7d8, 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1), 0px 4px 5px 0px #d6d7d8, 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1), 0px 4px 5px 0px #d6d7d8, 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        h1 {
+          padding: 0 1rem;
+        }
+        >div{
+          overflow: hidden;
+        }
+        //.body-content{
+        //  animation-duration: 300ms;
+        //  animation-fill-mode: both;
+        //  -webkit-animation-name: animateSlider;
+        //  animation-name: animateSlider;
+        //  -webkit-animation-timing-function: ease-in-out;
+        //  animation-timing-function: ease-in;
+        //  .body-content{
+        //    -webkit-animation-name: none;
+        //    animation-name: none;
+        //    animation-duration: 0s;
+        //    animation-fill-mode: none;
+        //  }
+        //}
+      }
+
+      .row-main{
+        height: auto;
+        > .side-menu {
+          padding: 0 !important;
+          margin-top: 0;
+          background-color: transparent;
+          border-top-left-radius: 0;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+        }
+
+        > .main-container {
+          padding: 0 !important;
+          flex: 0 0 100% !important;
+          max-width: 100% !important;
+          margin: unset;
+          height: 100%;
+          overflow: unset;
+          border-radius: 0;
+          background-color: #fff;
+          border-top-left-radius: 0;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+          h1 {
+            padding: 0 1rem;
+          }
+        }
+      }
+    }
+    app-breadcrumb ~ .row-main{
+      > .side-menu, > .main-container {
+        margin-top: 0;
+      }
+      > .main-container {
+        height: 89%;
+      }
+    }
+  }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline
+{
+  color: transparent;
+  background-color: var(--gray-light);
+}
+
+body .form-group .mat-form-field .mat-input-element::-webkit-input-placeholder {
+  color: var(--gray-dark) !important;
+  -webkit-text-fill-color:var(--gray-dark) !important;
+}
+
+
+.mat-form-field-file-with-preview.mat-form-field.mat-form-field-appearance-outline > div.mat-form-field-wrapper > div.mat-form-field-flex > div.mat-form-field-infix {
+  display: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px #e5f4f3 inset !important;
+}
+.side-menu {
+  :focus {
+    outline: none;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+/******************* Colors ***************************/
+.bg-orange{
+  background-color: mat-color($mat-orange-reg,500);
+  &:hover,&:focus{
+    background-color: mat-color($mat-orange-reg,700);
+  }
+}
+.bg-blue{
+  background-color: mat-color($mat-blue-reg,500);
+  &:hover,&:focus{
+    background-color: mat-color($mat-blue-reg,800);
+  }
+}
+.bg-yellow{
+  background-color: mat-color($mat-yellow-reg,500);
+  &:hover,&:focus{
+    background-color: mat-color($mat-yellow-reg,700);
+  }
+}
+.bg-green{
+  background-color: mat-color($mat-green-reg,500);
+  &:hover,&:focus{
+    background-color: mat-color($mat-green-reg,700);
+  }
+}
+/******************* Buttons ***************************/
+.buttons-section {
+  margin-top: 1rem;
+  justify-content: flex-end;
+  > div{
+    margin: 0px 4px;
+  }
+  button {
+    border-radius: 0.3rem;
+    min-width: 100px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    color:$light-primary-text;
+  }
+}
+.btn-add-form {
+  float: left !important;
+}
+app-ttwr-form ~ .btn-add-form {
+  float: right !important;
+}
+[dir="rtl"] {
+  .btn-add-form {
+    float: right !important;
+  }
+  app-ttwr-form ~ .btn-add-form {
+    float: left !important;
+  }
+}
+.mat-form-field-subscript-wrapper {
+  margin-top: 0.1em;
+}
+
+
+.mat-datepicker-toggle-default-icon{
+  //fill: #3F4D67;
+}
+
+.browse-button{
+  svg{
+    path{
+      //fill: #3F4D67 !important;
+    }
+  }
+}
+.btn-fieldActions{
+  margin-top:10px !important;
+}
+
+.btn-fieldActions{
+  padding: 8px;
+  svg-icon{
+    display: flex;
+  }
+}
+/************ Select Input ***************/
+.search-box {
+  outline: none !important;
+  //font-size: 15px !important;
+}
+
+/************* Start index pages ************/
+.current-financial-year{
+  position: absolute;
+  top: -56px;
+  left: 35%;
+  width: 25%;
+  text-align: center;
+  //color: #01C5CE;
+}
+.cdk-overlay-connected-position-bounding-box{
+  margin-top: 4px;
+  margin-right: 6px;
+}
+.mat-menu-content:not(:empty) {
+  padding: 0px !important;
+}
+
+/*****************  radio input *****************/
+
+.mat-radio-label-content{
+  //font-size: 15px;
+}
+.mat-radio-container{
+  width: 15px !important;
+  height: 15px !important;
+}
+.mat-radio-checked .mat-radio-inner-circle{
+  transform: scale(1) !important;
+}
+.mat-radio-outer-circle{
+  //border-color: #3F4D67  !important;
+}
+.mat-radio-outer-circle,.mat-radio-inner-circle{
+  width:15px  !important;
+  height: 15px  !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+  //background-color: #3F4D67  !important;
+}
+
+.mat-checkbox-background ,.mat-checkbox-frame{
+  border-radius: 4px !important;
+}
+/*************************/
+.mat-table {
+  overflow-x: auto;
+  box-shadow:none;
+  .btn-view, .btn-edit, .btn-delete{
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+mat-header-row{
+  background-color: mat-color(map-get($my-app-theme, accent), 500);
+  color: mat-color(map-get($my-app-theme, accent), default-contrast);
+  min-height: 37px !important;
+}
+mat-row,mat-header-row,mat-footer-row{
+  min-width: fit-content;
+  align-items: stretch !important;
+  border:none !important;
+}
+mat-row{
+  background-color: var(--gray-light);
+  border-radius: 0.4rem;
+  &:not(:last-child){
+    margin: 0.3em 0 ;
+  }
+  &:last-child{
+    margin: 0.3em 0 0;
+  }
+}
+.mat-header-cell{
+  justify-content: center;
+}
+
+.mat-cell{
+  color:var(--gray-dark);
+  justify-content: center;
+  font-weight: 600;
+  &.action-cell{
+    a{
+      cursor: pointer;
+    }
+  }
+}
+
+mat-cell, mat-footer-cell, mat-header-cell{
+  overflow: visible !important;
+  min-width: 130px;
+  padding:0px 5px !important;
+}
+
+.mat-column-Actions{
+  min-width: 170px;
+}
+
+.colored-blue-link{
+  color: var(--primary) !important;
+}
+.index-header{
+  margin: 0.6rem 0 !important;
+  flex-direction: row-reverse !important;
+
+  .btn-create,.btn-filter,.btn-sort,.btn-export {
+    svg {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+  }
+  .btn-export{
+    margin-left: 6px !important;
+    margin-right: 6px !important;
+    svg path{
+      fill:#fff;
+    }
+  }
+  > span
+  {
+    > .btn {
+      box-shadow: none;
+      background-color: mat-color($mat-orange-reg,500);
+      padding: 0px 9px !important;
+      svg{
+        position: relative;
+        bottom: 3px;
+      }
+      height: 37px;
+      border-radius: 0.2rem;
+      &:hover,&:focus,&:not(:disabled):not(.disabled):active{
+        background-color: mat-color($mat-orange-reg,700);
+      }
+    }
+    &.span-btn-filter {
+      order:2;
+    }
+    &.span-btn-sort{
+      order:3;
+    }
+    &.span-btn-export{
+      order:4;
+    }
+  }
+}
+/************* Start  paginator ************/
+.mat-paginator-range-label {
+  margin: 0px 10px !important;
+}
+
+.mat-paginator {
+  background: transparent;
+}
+
+.mat-paginator-page-size {
+  padding-top: 11px;
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0 2px;
+    border-top:0px;
+  }
+
+  .mat-form-field-type-mat-select .mat-form-field-flex {
+    padding: 0px 7px;
+    border-radius: 7px;
+    border: 0.07rem solid mat-color(map-get($my-app-theme, primary), 500);
+  }
+  .mat-form-field-ripple {
+    background-color: transparent;
+  }
+  .mat-form-field-underline {
+    background-color: transparent !important;
+  }
+  .mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: transparent !important;
+  }
+}
+/************* End index pages ************/
+
+.details-view {
+  padding: 5px 15px 0px 15px !important;
+  //background-color: #f4f4f4;
+  margin-bottom: 2px;
+  label:first-child {
+    flex:1 !important;
+  }
+  label:not(:first-child),
+  label:nth-child(2){
+    flex:1 !important;
+  }
+}
+/************* Star create/update pages ************/
+.mat-dialog-container {
+  border-radius: 0.8rem;
+}
+
+.ttwr-dialog .mat-dialog-container {
+  padding: 0px;
+  border-radius: 0.8rem;
+  //background-color: transparent;
+  box-shadow: none;
+  .header-content {
+    padding: 0.8rem 1.5rem;
+    background-color: mat-color(map-get($my-app-theme, primary), 500);
+    h1 {
+      padding: 0;
+      margin-bottom: 0;
+      color:$light-primary-text;
+    }
+  }
+
+  .body-content {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 2.5rem 1rem;
+    .header-content {
+      padding: 0;  background-color: transparent;
+      h1{
+        padding: 0 1rem;
+        color:mat-color(map-get($my-app-theme, primary), 500);
+      }
+    }
+    .body-content{
+      padding: 0;
+      max-height: unset;
+      overflow-y: initial;
+    }
+  }
+}
+
+
+.btn-action-col{
+  white-space: nowrap;
+  padding: 0.2rem 0.5rem;
+  margin: 0px 5px;
+  font-weight: normal;
+  border-radius:0.3rem;
+  color:$dark-primary-text !important;
+  background-color: mat-color($mat-cyan-reg,500);
+  box-shadow: 0px 2px 3px 0px #9E9E9E;
+  &:hover,&:focus{
+    cursor: pointer;
+    background-color: mat-color($mat-cyan-reg,700);
+  }
+}
+
+/************* End index pages ************/
+/************* Start Tree ************/
+.tree-search {
+  margin-top:25px;
+  svg-icon{
+    margin: 0px 10px;
+    position: relative;
+    bottom: 5px;
+    svg{
+      fill: var(--orange);
+    }
+  }
+  .mat-form-field {
+    .mat-form-field-infix {
+      padding: .30em 0 .30em 0;
+    }
+    .mat-form-field-underline::before,
+    .mat-form-field-ripple,
+    &.mat-focused .mat-form-field-ripple {
+      //background-color: transparent;
+    }
+  }
+}
+.tree-container{
+  padding: 1rem 0.3rem;
+}
+mat-tree {
+
+  li{
+    overflow: hidden;
+  }
+  > mat-nested-tree-node >li{
+    @include border-bottom-radius(0);
+  }
+  ul, li {
+    padding-inline-start: 0;
+    border-bottom: 0.15rem solid #fff;
+  }
+  .node-content {
+    font-size: 1rem;
+    font-family: arial;
+  }
+  .background-color-1 {
+    background-color: var(--accent) !important;
+
+    .node-content ,mat-icon{
+      color:$light-primary-text;
+    }
+  }
+  .background-color-2{
+    background-color:var(--gray-light) !important;
+  }
+  .background-color-3{
+    .node-content ,mat-icon{
+      opacity: 0.9;
+    }
+  }
+  .mat-tree-node, .mat-nested-tree-node{
+    color:$dark-primary-text;
+  }
+
+
+}
+
+/************* End Tree ************/
+/************* Start Tab ************/
+.mat-tab-label-container{
+  margin-top:30px;
+}
+.mat-tab-body {
+  border: 0.5px solid #dddd;
+  border-radius: 5px;
+  border-top: 0px;
+  padding: 20px;
+}
+.mat-tab-label {
+  height: 38px !important;
+  padding: 0px 5px;
+  margin: 0 0.1rem;
+  color: mat-color(map-get($my-app-theme, primary), 600);
+  background-color: mat-color(map-get($my-app-theme, accent), 400);
+  opacity: 1 !important;
+  @include border-top-radius(10px);
+}
+.mat-tab-label-active,
+.mat-tab-label:hover,
+.mat-tab-label:focus{
+  background-color:mat-color(map-get($my-app-theme, primary), 500);
+  color: #fff;
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+  background-color: transparent;
+}
+/************* End Tab ************/
+
+legend {
+  width: 20% !important;
+  //font-size: 1.25rem;
+}
+legend a.ng-tns-c9-6.ng-star-inserted{
+  width: 100% !important;
+}
+.ui-dropdown ,.border-input{
+  border: 1px solid #c8c8c8 !important;
+}
+p-dropdown.form-control{
+  padding: 0 !important;
+}
+.ui-inputtext{
+  margin:  0;
+}
+
+.form-control .ui-dropdown{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/************* Start Scrollbar ************/
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.mat-drawer-inner-container::-webkit-scrollbar {
+  width: 0px;
+}
+/* Track */
+::-webkit-scrollbar-track{
+  background: #ddd;
+}
+/* Handle */
+::-webkit-scrollbar-thumb{
+  background: var(--gray-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+
+}
+/********** mat-tooltip ********/
+.mat-tooltip{
+  background-color: var(--gray-dark);
+  opacity: 0.9;
+  margin: 3px 14px !important;
+}
+
+.toast-top-left {
+  top: 67px !important;
+}
+/************ Responsive *********/
+@media (max-width: 1024px){
+  .ttwr-dialog{
+    width: 90vw !important;
+    max-width: 90vw !important;
+  }
+}
+@media (max-width: 992px) {
+  main {
+    background-color: #fff;
+    app-main > .row  {
+      .side-menu {
+        padding: 0rem 0.5rem !important;
+        .menu-container{
+          padding: 1.2rem 0rem !important;
+        }
+      }
+      .main-container{
+        padding: 1.2rem 1rem !important;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .filter-dialog {
+    .form-group {
+      width: 100% !important;
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+    app-ttwr-form ~ .btn-add-form {
+      position: relative;
+      bottom: 59px !important;
+    }
+  }
+  .ttwr-dialog{
+    width: 95vw !important;
+    max-width: 95vw !important;
+  }
+}
+@media (max-width: 576px){
+  main {
+    .container-fluid {
+      height: auto;
+      .row-main{
+        margin: 0 !important;
+        height: auto;
+        > .side-menu {
+          margin: 2% auto 0;
+          border-radius: 1rem;
+        }
+
+        > .main-container {
+          height: auto;
+          overflow: unset;
+          border-radius: 1rem;
+        }
+
+      }
+    }
+  }
+}
+/**************** print **************/
+@media print {
+  mat-sidenav-container.mat-drawer-container.mat-sidenav-container.isPrinting {
+    display: none;
+  }
+  app-print-layout {
+    display: block;
+  }
+
+  table.table-bordered {
+    border: 1px solid black !important;
+  }
+  table.table-bordered > thead > tr > th {
+    border: 1px solid black !important;
+  }
+
+  table.table-bordered > tbody > tr > td {
+    border: 1px solid black !important;
+  }
+}
+@media print
+{
+  .no-print, .no-print *
+  {
+    display: none !important;
+  }
+}

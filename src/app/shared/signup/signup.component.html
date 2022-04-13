@@ -1,0 +1,27 @@
+<form [formGroup]="signupForm" id="signup-form" (ngSubmit)="onSubmit()">
+  <div class="form-group float-left">
+    <label for="inputFirstName">{{ 'First Name' | language }}</label>
+    <input type="text" class="form-control" id="inputFirstName" formControlName="first_name" ngModel>
+    <span class="help-block" *ngIf="signupForm.get('first_name').value === '' && !signupForm.get('first_name').valid && signupForm.get('first_name').touched">{{ 'Please enter your first name' | language }}</span>
+  </div>
+  <div class="form-group float-left ml-5">
+    <label for="inputLastName">{{ 'Last Name' | language }}</label>
+    <input type="text" class="form-control" id="inputLastName" formControlName="last_name" ngModel>
+    <span class="help-block" *ngIf="signupForm.get('last_name').value === '' && !signupForm.get('last_name').valid && signupForm.get('last_name').touched">{{ 'Please enter your last name' | language }}</span>
+  </div>
+  <div class="clearfix"></div>
+  <div class="form-group float-left">
+    <label for="inputPassword">{{ 'Password' | language }}</label>
+    <input type="password" class="form-control" id="inputPassword" formControlName="password" ngModel>
+    <span class="help-block" *ngIf="signupForm.get('password').value === '' && !signupForm.get('password').valid && signupForm.get('password').touched">{{ 'Please enter your password' | language }}</span>
+  </div>
+  <div class="form-group float-left ml-5">
+    <label for="inputUsername">{{ 'Username' | language }}</label>
+    <input type="email" class="form-control" id="inputUsername" formControlName="username" ngModel>
+    <span class="help-block" *ngIf="signupForm.get('username').value === '' && !signupForm.get('username').valid && signupForm.get('username').touched">{{ 'Please enter your username' | language }}</span>
+    <span class="help-block" *ngIf="signupForm.get('username').value !== '' && !signupForm.get('username').valid && signupForm.get('username').touched">{{ 'Please enter your valid username' | language }}</span>
+  </div>
+
+  <div class="clearfix"></div>
+  <button type="submit" class="btn btn-primary">{{ 'Submit' | language }}</button>
+</form>

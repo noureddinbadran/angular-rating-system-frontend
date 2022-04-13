@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto mt-5">
+            <div class="card p-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Your Review of Circle Design</h4>
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <p>
+                            please review the work done by circle design for the project
+                            <q
+                            >Build site with apointment functionality linked to shopify</q
+                            >
+                        </p>
+                    </div>
+                </div>
+
+                <form [formGroup]="ratingForm" (ngSubmit)="onSubmit()" id="rating-form">
+                    <div id="first" class="row mt-5">
+                        <div class="col-12 col-md-6 mx-auto">
+                            <h3 class="text-center" style="font-weight: bold">
+                                overall satisfaction
+                            </h3>
+
+                            <input type="number" min="0" max="5" name="overall_satisfaction" class="form-control" id="inputOverallSatisfaction" required
+                                   formControlName="overall_satisfaction" ngModel>
+
+                            <p class="text-center font-bold mt-3">
+
+                            </p>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="mb-3">
+                                <label for="review" class="form-label">
+                                    please add a short review</label
+                                >
+                                <textarea
+
+                                        class="form-control"
+                                        id="review"
+                                        rows="5"
+                                        ngModel
+                                        formControlName="review"
+                                ></textarea>
+
+                                <p class="d-flex justify-content-end">
+                                    <span></span>
+                                    <span> /</span>
+                                    <span> </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <!--<button-->
+                                        <!--class="btn btn-primary"-->
+                                        <!--type="button"-->
+
+                                <!--&gt;-->
+                                    <!--next-->
+                                <!--</button>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="second" class="row mt-5">
+                        <h3 class="font-bold">Additional Ratings</h3>
+                        <div class="col-12">
+                            <div class="font-bold size-14">Communications</div>
+
+                            <input type="number" min="0" max="5" name="communication" class="form-control" id="inputCommunication" required
+                                   formControlName="communication" ngModel>
+                        </div>
+                        <div class="col-12 my-3">
+                            <div class="font-bold size-14">Quality of work</div>
+
+                            <input type="number" min="0" max="5" name="quality_of_work" class="form-control" id="inputQuality_of_work" required
+                                   formControlName="quality_of_work" ngModel>
+                        </div>
+                        <div class="col-12">
+                            <div class="font-bold size-14">Value for money</div>
+
+                            <input type="number" min="0" max="5" name="value_for_money" class="form-control" id="inputValue_for_money" required
+                                   formControlName="value_for_money" ngModel>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <div class="d-grid gap-2">
+                                <button   class="btn btn-primary" type="submit">send feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

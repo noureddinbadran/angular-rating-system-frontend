@@ -1,0 +1,24 @@
+<div class="container">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-owner-form">
+            <p-messages [(value)]="msgs"></p-messages>
+            <div class="form-group">
+                <label for="inputEmail1">{{ 'Username' | language }}</label>
+                <input type="email" class="form-control" id="inputEmail1" required
+                       formControlName="email" ngModel>
+                <span class="help-block" *ngIf="loginForm.get('email').value === '' && !loginForm.get('email').valid && loginForm.get('email').touched">{{ 'Please enter your email' | language }}</span>
+                <span class="help-block" *ngIf="loginForm.get('email').value !== '' && !loginForm.get('email').valid && loginForm.get('email').touched">{{ 'Please enter your valid email' | language }}</span>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">{{ 'Password' | language }}</label>
+                <input type="password" class="form-control" id="inputPassword" required formControlName="password"
+                       ngModel>
+                <span class="help-block" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">{{ 'Please enter your password' | language }}</span>
+            </div>
+            <a href="/signup">{{ 'No account yet? Register here ...' | language }}</a>
+            <hr/>
+            <button type="submit" class="btn btn-primary">{{ 'Submit' | language }}</button>
+        </form>
+
+
+</div>
