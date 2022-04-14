@@ -8,11 +8,15 @@
                     </div>
                     <div class="col-12 col-md-10">
                         <p>
-                            please review the work done by circle design for the project
-                            <q
-                            >Build site with apointment functionality linked to shopify</q
-                            >
+                            please review the work done by circle design for one of the following projects
+
                         </p>
+
+                        Choose a project:
+                        <select name="project_id" class="form-control"  (change)="onChange($event.target.value)">
+                            <option disabled selected>------</option>
+                            <option *ngFor="let project of projects" [value]="project.id">{{project.title}}</option>
+                        </select>
                     </div>
                 </div>
 
@@ -23,13 +27,14 @@
                                 overall satisfaction
                             </h3>
 
-                            <input type="number" min="0" max="5" name="overall_satisfaction" class="form-control" id="inputOverallSatisfaction" required
+                            <input type="number" min="1" max="5" name="overall_satisfaction" class="form-control" id="inputOverallSatisfaction" required
                                    formControlName="overall_satisfaction" ngModel>
 
                             <p class="text-center font-bold mt-3">
 
                             </p>
                         </div>
+
                         <div class="col-12 mt-2">
                             <div class="mb-3">
                                 <label for="review" class="form-label">
@@ -46,7 +51,7 @@
 
                                 <p class="d-flex justify-content-end">
                                     <span></span>
-                                    <span> /</span>
+                                    <span> </span>
                                     <span> </span>
                                 </p>
                             </div>
@@ -69,19 +74,19 @@
                         <div class="col-12">
                             <div class="font-bold size-14">Communications</div>
 
-                            <input type="number" min="0" max="5" name="communication" class="form-control" id="inputCommunication" required
+                            <input type="number" min="1" max="5" name="communication" class="form-control" id="inputCommunication" required
                                    formControlName="communication" ngModel>
                         </div>
                         <div class="col-12 my-3">
                             <div class="font-bold size-14">Quality of work</div>
 
-                            <input type="number" min="0" max="5" name="quality_of_work" class="form-control" id="inputQuality_of_work" required
+                            <input type="number" min="1" max="5" name="quality_of_work" class="form-control" id="inputQuality_of_work" required
                                    formControlName="quality_of_work" ngModel>
                         </div>
                         <div class="col-12">
                             <div class="font-bold size-14">Value for money</div>
 
-                            <input type="number" min="0" max="5" name="value_for_money" class="form-control" id="inputValue_for_money" required
+                            <input type="number" min="1" max="5" name="value_for_money" class="form-control" id="inputValue_for_money" required
                                    formControlName="value_for_money" ngModel>
                         </div>
 

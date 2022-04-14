@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services-package/general-services/auth/authentication.service';
 import {MenuItem} from 'primeng/api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import {MenuItem} from 'primeng/api';
 })
 export class HomeComponent implements OnInit {
   items: MenuItem[];
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private  router: Router) { }
 
   ngOnInit() {
     this.items = [
@@ -40,5 +41,6 @@ export class HomeComponent implements OnInit {
     logout() {
 
         this.authenticationService.logout();
+        this.router.navigate(['/login']);
     }
 }
